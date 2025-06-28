@@ -1,0 +1,1 @@
+export * from './poke-api-response.interface';

@@ -1,0 +1,14 @@
+
+services:
+  db:
+    image: postgres:16.3
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+    container_name: teslo-shop-rest-api
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
