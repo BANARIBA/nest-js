@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "dfe520e5-f487-42dc-9194-25fd38765c67",
+		"name": "Nest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10109923"
+	},
+	"item": [
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Seccion 3 Basic Reports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seccion 3 Employee Letter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports/employee-letter/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports",
+								"employee-letter",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seccion 4 Countries Report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports/countries?continent=Antarctica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports",
+								"countries"
+							],
+							"query": [
+								{
+									"key": "continent",
+									"value": "Antarctica"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seccion 5 Order details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports/orders/details/10250",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports",
+								"orders",
+								"details",
+								"10250"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seccion 6 Reporte de Grafica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports/svg-charts-report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports",
+								"svg-charts-report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seccion 7 Reports Html a PDF",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports/html-to-pdf-report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports",
+								"html-to-pdf-report"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seccion 6 reporte de estadisticas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports/company-stadistics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports",
+								"company-stadistics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seccion 7 Reports Html a PDF 3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports/html-to-pdf-report-3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports",
+								"html-to-pdf-report-3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seccion 7 Reporte Personalizado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports/html-to-pdf-report-personalized",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports",
+								"html-to-pdf-report-personalized"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seccion 7 reporte con tamanio horizaontal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3500/reports/custom-size-report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3500",
+							"path": [
+								"reports",
+								"custom-size-report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Microservices",
+			"item": []
+		},
+		{
+			"name": "Testing",
+			"item": []
+		}
+	]
+}
