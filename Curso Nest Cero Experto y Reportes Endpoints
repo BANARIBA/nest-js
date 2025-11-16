@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "dfe520e5-f487-42dc-9194-25fd38765c67",
-		"name": "Nest",
+		"name": "Curso Nest Sin Microservicios",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "10109923"
 	},
@@ -218,10 +218,6 @@
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "Microservices",
-			"item": []
 		},
 		{
 			"name": "Testing",
