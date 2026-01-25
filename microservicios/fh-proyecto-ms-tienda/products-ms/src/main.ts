@@ -24,4 +24,3 @@ export async function bootstrap() {
   logger.log(`Products MS Started on port: ${process.env.PRODUCTS_MS_PORT!}`);
 }
 void bootstrap();
-// Github Organizations - Agrupar repositorios

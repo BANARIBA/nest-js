@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -54,7 +54,11 @@ export class BrandsService {
         id: id,
       },
     });
-    if (!brand) throw new NotFoundException('Brand not found');
+    if (!brand)
+      throw new NotFoundException({
+        message: 'Marca no encontrada',
+        status: HttpStatus.NOT_FOUND,
+      });
     return brand;
   }
 
@@ -62,13 +66,21 @@ export class BrandsService {
     const brand = await this.brandsRepository.preload({
       id: updateBrandDto.id,
     });
-    if (!brand) throw new NotFoundException('Brand not found.');
+    if (!brand)
+      throw new NotFoundException({
+        message: 'Marca no encontrada',
+        status: HttpStatus.NOT_FOUND,
+      });
     return await this.brandsRepository.save({ ...brand, ...updateBrandDto });
   }
 
   public async remove(id: string) {
     const brand = await this.brandsRepository.preload({ id: id });
-    if (!brand) throw new NotFoundException('Brand not found.');
+    if (!brand)
+      throw new NotFoundException({
+        message: 'Marca no encontrada',
+        status: HttpStatus.NOT_FOUND,
+      });
     return await this.brandsRepository.save({ ...brand, is_active: false });
   }
 }

@@ -1,4 +1,4 @@
-import { Controller, ParseUUIDPipe } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { BrandsService } from './brands.service';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
@@ -14,14 +14,14 @@ export class BrandsController {
     return this.brandsService.create(createBrandDto);
   }
 
-  @MessagePattern({ cmd: 'get_all_brand' })
+  @MessagePattern({ cmd: 'get_all_brands' })
   findAll(@Payload() searchBrandsByDto: SearchBrandsByDto) {
     return this.brandsService.findAll(searchBrandsByDto);
   }
 
   @MessagePattern({ cmd: 'get_brand' })
-  findOne(@Payload('id', ParseUUIDPipe) id: string) {
-    return this.brandsService.findOne(id);
+  findOne(@Payload() data: { brand_id: string }) {
+    return this.brandsService.findOne(data.brand_id);
   }
 
   @MessagePattern({ cmd: 'edit_brand' })
@@ -30,7 +30,7 @@ export class BrandsController {
   }
 
   @MessagePattern({ cmd: 'delete_brand' })
-  remove(@Payload('id', ParseUUIDPipe) id: string) {
-    return this.brandsService.remove(id);
+  remove(@Payload() data: { brand_id: string }) {
+    return this.brandsService.remove(data.brand_id);
   }
 }
