@@ -13,8 +13,7 @@
     "target": "ES2023",
     "sourceMap": true,
     "outDir": "./dist",
-    // "baseUrl": "./",           // ← se mantiene
-    "paths": { "*": ["./*"] }, // ← esto silencia el warning
+    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,

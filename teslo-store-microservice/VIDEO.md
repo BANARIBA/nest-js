@@ -1,1 +1,2 @@
-- Ver Seccion 4: Actualizar producto
+- Ver Seccion 4 products-ms: Transformar a microservicio 
+- Ver Seccion 5 client-gateway: Obtener todos los products

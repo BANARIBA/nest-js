@@ -1,0 +1,372 @@
+{
+  "info": {
+    "_postman_id": "a04745e2-9ae2-48dd-883b-13a799ade95f",
+    "name": "Teslo Shop Store Microservice",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "10109923"
+  },
+  "item": [
+    {
+      "name": "Ordenes App Microservice",
+      "item": []
+    },
+    {
+      "name": "Products App Microservice",
+      "item": [
+        {
+          "name": "Brands",
+          "item": [
+            {
+              "name": "Create Brand",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Marca 6\",\r\n    \"description\": \"Descripcion Marca 6\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3001/brands",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "brands"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Brands",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3001/brands?init_date=2026-03-27&end_date=2026-03-29",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "brands"
+                  ],
+                  "query": [
+                    {
+                      "key": "is_active",
+                      "value": "true",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "limit",
+                      "value": "2",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skip",
+                      "value": "1",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "name",
+                      "value": "3",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "description",
+                      "value": "3",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "init_date",
+                      "value": "2026-03-27",
+                      "type": "text"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2026-03-29",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Brand",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3001/brands/20a64073-65a0-4201-bc19-1bf237fafa99",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "brands",
+                    "20a64073-65a0-4201-bc19-1bf237fafa99"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Brand",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3001/brands/20a64073-65a0-4201-bc19-1bf237fafa99",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "brands",
+                    "20a64073-65a0-4201-bc19-1bf237fafa99"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Reactivate Brand",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3001/brands/reactivate/20a64073-65a0-4201-bc19-1bf237fafa99",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "brands",
+                    "reactivate",
+                    "20a64073-65a0-4201-bc19-1bf237fafa99"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Brand",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"MODIFIED\",\r\n    \"description\": \"MODIFIED\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3001/brands/20a64073-65a0-4201-bc19-1bf237fafa99",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "brands",
+                    "20a64073-65a0-4201-bc19-1bf237fafa99"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Products",
+          "item": [
+            {
+              "name": "Create Product",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Producto 10\",\r\n    \"price\": 99.99,\r\n    \"in_stock\": 200,\r\n    \"brand_id\": \"4e40c626-4600-4876-81a7-10584f198faa\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3001/products",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "products"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Products",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3001/products",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "min_price",
+                      "value": "799.99",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "max_price",
+                      "value": "999.99",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "name",
+                      "value": "7",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5",
+                      "type": "text",
+                      "disabled": true
+                    },
+                    {
+                      "key": "skip",
+                      "value": "2",
+                      "type": "text",
+                      "disabled": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Product",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3001/products/4b38caba-7559-4c3f-b7da-c455ec396ef5",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "products",
+                    "4b38caba-7559-4c3f-b7da-c455ec396ef5"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Producto 1\",\r\n    \"price\": 9.99,\r\n    \"in_stock\": 100,\r\n    \"brand_id\": \"eec5c0cf-a092-4b0a-b799-bedf52a1a667\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3001/products/0a41f7f7-1e46-433e-b45c-7da65a398974",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "products",
+                    "0a41f7f7-1e46-433e-b45c-7da65a398974"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Product",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3001/products/0a41f7f7-1e46-433e-b45c-7da65a398974",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "products",
+                    "0a41f7f7-1e46-433e-b45c-7da65a398974"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Reactivate Product",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3001/products/reactivate/0a41f7f7-1e46-433e-b45c-7da65a398974",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3001",
+                  "path": [
+                    "products",
+                    "reactivate",
+                    "0a41f7f7-1e46-433e-b45c-7da65a398974"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
