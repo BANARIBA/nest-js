@@ -7,11 +7,171 @@
   },
   "item": [
     {
-      "name": "Ordenes App Microservice",
-      "item": []
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Find orders",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "Pixel 10a",
+                  "type": "text",
+                  "uuid": "5b26e2b3-0bf9-4d65-a1c6-db58e1c6a8b5"
+                },
+                {
+                  "key": "price",
+                  "value": "599.99",
+                  "type": "text",
+                  "uuid": "62618bf9-b3b9-4cec-9229-1dc5aa7c27cd"
+                },
+                {
+                  "key": "in_stock",
+                  "value": "15",
+                  "type": "text",
+                  "uuid": "93b48fb7-6697-46bc-979a-afe2ccc9fa9b"
+                },
+                {
+                  "key": "brand_id",
+                  "value": "51b63717-0520-4fba-ac95-549ad393b884",
+                  "type": "text",
+                  "uuid": "79f60717-930e-4356-9076-f8e334cb07c5"
+                },
+                {
+                  "key": "images",
+                  "type": "file",
+                  "uuid": "102c4ac9-2e64-4ebe-b2b2-bccaa4f0f9ce",
+                  "src": [
+                    "/C:/Users/bryan/Downloads/1200_900.jpeg",
+                    "/C:/Users/bryan/Downloads/Google Pixel 10a hero image SOURCE Julian Chokkattu.webp"
+                  ]
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "orders"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "cancelled",
+                  "disabled": true
+                },
+                {
+                  "key": "limit",
+                  "value": "10",
+                  "disabled": true
+                },
+                {
+                  "key": "skip",
+                  "value": "1",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change order status",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"confirmed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/orders/dd43165d-d5bb-4701-8887-de71f7eadb1a/check-status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "orders",
+                "dd43165d-d5bb-4701-8887-de71f7eadb1a",
+                "check-status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Find  order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/orders/fa93ac31-fb45-4237-813c-d98763005f8b",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "orders",
+                "fa93ac31-fb45-4237-813c-d98763005f8b"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"total_amount\": 1299.98,\r\n    \"total_items\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     },
     {
-      "name": "Products App Microservice",
+      "name": "Products",
       "item": [
         {
           "name": "Brands",
@@ -23,7 +183,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"name\": \"Marca 6\",\r\n    \"description\": \"Descripcion Marca 6\"\r\n}",
+                  "raw": "{\r\n    \"name\": \"POCO\",\r\n    \"description\": \"POCO\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -31,13 +191,14 @@
                   }
                 },
                 "url": {
-                  "raw": "http://localhost:3001/brands",
+                  "raw": "http://localhost:3000/api/brands",
                   "protocol": "http",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "brands"
                   ]
                 }
@@ -50,13 +211,14 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:3001/brands?init_date=2026-03-27&end_date=2026-03-29",
+                  "raw": "http://localhost:3000/api/brands",
                   "protocol": "http",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "brands"
                   ],
                   "query": [
@@ -89,16 +251,6 @@
                       "value": "3",
                       "type": "text",
                       "disabled": true
-                    },
-                    {
-                      "key": "init_date",
-                      "value": "2026-03-27",
-                      "type": "text"
-                    },
-                    {
-                      "key": "end_date",
-                      "value": "2026-03-29",
-                      "type": "text"
                     }
                   ]
                 }
@@ -111,15 +263,16 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:3001/brands/20a64073-65a0-4201-bc19-1bf237fafa99",
+                  "raw": "http://localhost:3000/api/brands/b0cecc9b-fbe3-4197-a4fc-6b09f4fc1493",
                   "protocol": "http",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "brands",
-                    "20a64073-65a0-4201-bc19-1bf237fafa99"
+                    "b0cecc9b-fbe3-4197-a4fc-6b09f4fc1493"
                   ]
                 }
               },
@@ -131,15 +284,16 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:3001/brands/20a64073-65a0-4201-bc19-1bf237fafa99",
+                  "raw": "http://localhost:3000/api/brands/b0cecc9b-fbe3-4197-a4fc-6b09f4fc1493",
                   "protocol": "http",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "brands",
-                    "20a64073-65a0-4201-bc19-1bf237fafa99"
+                    "b0cecc9b-fbe3-4197-a4fc-6b09f4fc1493"
                   ]
                 }
               },
@@ -151,16 +305,17 @@
                 "method": "PATCH",
                 "header": [],
                 "url": {
-                  "raw": "http://localhost:3001/brands/reactivate/20a64073-65a0-4201-bc19-1bf237fafa99",
+                  "raw": "http://localhost:3000/api/brands/reactivate/b0cecc9b-fbe3-4197-a4fc-6b09f4fc1493",
                   "protocol": "http",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "brands",
                     "reactivate",
-                    "20a64073-65a0-4201-bc19-1bf237fafa99"
+                    "b0cecc9b-fbe3-4197-a4fc-6b09f4fc1493"
                   ]
                 }
               },
@@ -173,7 +328,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"name\": \"MODIFIED\",\r\n    \"description\": \"MODIFIED\"\r\n}",
+                  "raw": "{\r\n    \"name\": \"APPLE\",\r\n    \"description\": \"APPLE\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -181,15 +336,16 @@
                   }
                 },
                 "url": {
-                  "raw": "http://localhost:3001/brands/20a64073-65a0-4201-bc19-1bf237fafa99",
+                  "raw": "http://localhost:3000/api/brands/b0cecc9b-fbe3-4197-a4fc-6b09f4fc1493",
                   "protocol": "http",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "brands",
-                    "20a64073-65a0-4201-bc19-1bf237fafa99"
+                    "b0cecc9b-fbe3-4197-a4fc-6b09f4fc1493"
                   ]
                 }
               },
@@ -206,22 +362,52 @@
                 "method": "POST",
                 "header": [],
                 "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n    \"name\": \"Producto 10\",\r\n    \"price\": 99.99,\r\n    \"in_stock\": 200,\r\n    \"brand_id\": \"4e40c626-4600-4876-81a7-10584f198faa\"\r\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "Pixel 10a",
+                      "type": "text",
+                      "uuid": "5b26e2b3-0bf9-4d65-a1c6-db58e1c6a8b5"
+                    },
+                    {
+                      "key": "price",
+                      "value": "599.99",
+                      "type": "text",
+                      "uuid": "62618bf9-b3b9-4cec-9229-1dc5aa7c27cd"
+                    },
+                    {
+                      "key": "in_stock",
+                      "value": "15",
+                      "type": "text",
+                      "uuid": "93b48fb7-6697-46bc-979a-afe2ccc9fa9b"
+                    },
+                    {
+                      "key": "brand_id",
+                      "value": "51b63717-0520-4fba-ac95-549ad393b884",
+                      "type": "text",
+                      "uuid": "79f60717-930e-4356-9076-f8e334cb07c5"
+                    },
+                    {
+                      "key": "images",
+                      "type": "file",
+                      "uuid": "102c4ac9-2e64-4ebe-b2b2-bccaa4f0f9ce",
+                      "src": [
+                        "/C:/Users/bryan/Downloads/1200_900.jpeg",
+                        "/C:/Users/bryan/Downloads/Google Pixel 10a hero image SOURCE Julian Chokkattu.webp"
+                      ]
                     }
-                  }
+                  ]
                 },
                 "url": {
-                  "raw": "http://localhost:3001/products",
+                  "raw": "http://localhost:3000/api/products",
                   "protocol": "http",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "products"
                   ]
                 }
@@ -234,12 +420,13 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "localhost:3001/products",
+                  "raw": "localhost:3000/api/products",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "products"
                   ],
                   "query": [
@@ -257,8 +444,7 @@
                     },
                     {
                       "key": "name",
-                      "value": "7",
-                      "type": "text",
+                      "value": "SAMSUNG",
                       "disabled": true
                     },
                     {
@@ -284,14 +470,15 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "localhost:3001/products/4b38caba-7559-4c3f-b7da-c455ec396ef5",
+                  "raw": "localhost:3000/api/products/d0acaeca-119e-4ee2-acde-2211b28e314a",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "products",
-                    "4b38caba-7559-4c3f-b7da-c455ec396ef5"
+                    "d0acaeca-119e-4ee2-acde-2211b28e314a"
                   ]
                 }
               },
@@ -304,7 +491,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"name\": \"Producto 1\",\r\n    \"price\": 9.99,\r\n    \"in_stock\": 100,\r\n    \"brand_id\": \"eec5c0cf-a092-4b0a-b799-bedf52a1a667\"\r\n}",
+                  "raw": "{\r\n    \"name\": \"Samsung Galaxy A-07\",\r\n    \"price\": 299.99,\r\n    \"in_stock\": 300,\r\n    \"brand_id\": \"944b205c-c5a3-4591-9194-78351df0f8ea\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -312,14 +499,15 @@
                   }
                 },
                 "url": {
-                  "raw": "localhost:3001/products/0a41f7f7-1e46-433e-b45c-7da65a398974",
+                  "raw": "localhost:3000/api/products/0b59f86b-7c29-4d73-8ab5-4490bb268a3e",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "products",
-                    "0a41f7f7-1e46-433e-b45c-7da65a398974"
+                    "0b59f86b-7c29-4d73-8ab5-4490bb268a3e"
                   ]
                 }
               },
@@ -331,14 +519,15 @@
                 "method": "DELETE",
                 "header": [],
                 "url": {
-                  "raw": "localhost:3001/products/0a41f7f7-1e46-433e-b45c-7da65a398974",
+                  "raw": "localhost:3000/api/products/d0acaeca-119e-4ee2-acde-2211b28e314a",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "products",
-                    "0a41f7f7-1e46-433e-b45c-7da65a398974"
+                    "d0acaeca-119e-4ee2-acde-2211b28e314a"
                   ]
                 }
               },
@@ -350,15 +539,16 @@
                 "method": "PATCH",
                 "header": [],
                 "url": {
-                  "raw": "localhost:3001/products/reactivate/0a41f7f7-1e46-433e-b45c-7da65a398974",
+                  "raw": "localhost:3000/api/products/reactivate/d0acaeca-119e-4ee2-acde-2211b28e314a",
                   "host": [
                     "localhost"
                   ],
-                  "port": "3001",
+                  "port": "3000",
                   "path": [
+                    "api",
                     "products",
                     "reactivate",
-                    "0a41f7f7-1e46-433e-b45c-7da65a398974"
+                    "d0acaeca-119e-4ee2-acde-2211b28e314a"
                   ]
                 }
               },

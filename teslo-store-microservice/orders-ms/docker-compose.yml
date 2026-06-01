@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: orders_microservice_db
+    restart: always
+    environment:
+      POSTGRES_DB: ${ORDERS_MICROSERVICE_DBNAME}
+      POSTGRES_USER: ${ORDERS_MICROSERVICE_USERNAME}
+      POSTGRES_PASSWORD: ${ORDERS_MICROSERVICE_PASSWORD}
+    ports:
+      - "${ORDERS_MICROSERVICE_DBPORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

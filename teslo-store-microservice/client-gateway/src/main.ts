@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import { RpcCustomExceptionFilter } from './common/exceptions';
 
 export async function bootstrap() {
   const logger = new Logger('===> Client Gateway <===');
@@ -14,6 +15,7 @@ export async function bootstrap() {
       transform: true,
     }),
   );
+  app.useGlobalFilters(new RpcCustomExceptionFilter());
   await app.listen(process.env.CLIENT_GATEGWAY_PORT || 3000);
   logger.log(
     `Client Gateway is running on port ${process.env.CLIENT_GATEGWAY_PORT || 3000}`,

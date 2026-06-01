@@ -1,5 +1,19 @@
 import { Type } from 'class-transformer';
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator';
+import {
+  IsArray,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from 'class-validator';
+
+export class ImageFileDto {
+  public originalname!: string;
+  public mimetype!: string;
+  public size!: number; // bytes
+  public buffer!: string; // base64 string (serializable por TCP)
+  public extension!: string; // 'jpg', 'png', etc.
+}
 
 export class CreateProductDto {
   @IsString()
@@ -23,4 +37,8 @@ export class CreateProductDto {
   @IsString()
   @IsNotEmpty()
   public brand_id!: string;
+
+  @IsOptional()
+  @IsArray()
+  public images?: ImageFileDto[];
 }

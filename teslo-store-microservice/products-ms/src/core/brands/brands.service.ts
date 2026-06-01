@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -6,6 +6,7 @@ import { Repository } from 'typeorm';
 import { Brand } from './entities/brand.entity';
 import { SearchBrandDto } from './dto/search-brand.dto';
 import { defaultPaginationValues } from 'src/common/consts';
+import { RpcException } from '@nestjs/microservices';
 
 @Injectable()
 export class BrandsService {
@@ -84,7 +85,10 @@ export class BrandsService {
       where: { id: id },
     });
     if (!existsBrand)
-      throw new NotFoundException(`Brand with id ${id} not found`);
+      throw new RpcException({
+        message: `Brand with id #${id} not found`,
+        status: HttpStatus.NOT_FOUND,
+      });
     return existsBrand;
   }
 
@@ -95,7 +99,10 @@ export class BrandsService {
       id: id,
     });
     if (!existsBrand)
-      throw new NotFoundException(`Brand with id ${id} not found`);
+      throw new RpcException({
+        message: `Brand with id #${id} not found`,
+        status: HttpStatus.NOT_FOUND,
+      });
     return this.brandsRepository.save({
       ...existsBrand,
       ...data,
@@ -107,7 +114,10 @@ export class BrandsService {
       id: id,
     });
     if (!existsBrand)
-      throw new NotFoundException(`Brand with id ${id} not found`);
+      throw new RpcException({
+        message: `Brand with id #${id} not found`,
+        status: HttpStatus.NOT_FOUND,
+      });
     return this.brandsRepository.save({
       ...existsBrand,
       deleted_at: new Date(),
@@ -120,7 +130,10 @@ export class BrandsService {
       id: id,
     });
     if (!existsBrand)
-      throw new NotFoundException(`Brand with id ${id} not found`);
+      throw new RpcException({
+        message: `Brand with id #${id} not found`,
+        status: HttpStatus.NOT_FOUND,
+      });
     return this.brandsRepository.save({
       ...existsBrand,
       deleted_at: null,
