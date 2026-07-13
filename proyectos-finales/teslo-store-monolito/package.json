@@ -1,5 +1,5 @@
 {
-  "name": "teslo-shop-api",
+  "name": "teslo-store-monolito",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -23,15 +23,14 @@
     "@nestjs/common": "^11.0.1",
     "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.1",
-    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^11.0.1",
-    "@nestjs/typeorm": "^11.0.1",
+    "@nestjs/typeorm": "^11.0.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
-    "mssql": "^12.5.0",
+    "pg": "^8.22.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
-    "typeorm": "^0.3.28"
+    "typeorm": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
