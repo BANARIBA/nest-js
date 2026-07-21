@@ -19,4 +19,4 @@
 ```npm install --save @nestjs/typeorm typeorm pg```
 
 ## Seguir a partir del video
-__TypeORM - Entity - Product
+- Manejo de Errores

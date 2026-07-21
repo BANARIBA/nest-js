@@ -24,6 +24,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         database: configService.get('POSTGRES_DB'),
         autoLoadEntities: true,
         synchronize: true,
+        extra: {
+          options: '-c timezone=America/Tegucigalpa',
+        },
       }),
     }),
   ],
