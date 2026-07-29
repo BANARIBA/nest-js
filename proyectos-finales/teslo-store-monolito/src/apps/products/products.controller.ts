@@ -6,11 +6,14 @@ import {
   Patch,
   Param,
   Delete,
+  ParseUUIDPipe,
+  Query,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { ApiBody, ApiCreatedResponse, ApiOperation } from '@nestjs/swagger';
+import { SearchProductsByDto } from './dto';
 
 @Controller('products')
 export class ProductsController {
@@ -60,27 +63,37 @@ export class ProductsController {
       },
     },
   })
-  create(@Body() createProductDto: CreateProductDto) {
+  public create(@Body() createProductDto: CreateProductDto) {
     return this.productsService.create(createProductDto);
   }
 
   @Get()
-  findAll() {
-    return this.productsService.findAll();
+  public findAll(
+    @Query() queryParams: SearchProductsByDto
+  ) {
+    return this.productsService.findAll(queryParams);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productsService.findOne(+id);
+  public findOne(@Param('id', ParseUUIDPipe) id: string) {
+    return this.productsService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productsService.update(+id, updateProductDto);
+  public update(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() updateProductDto: UpdateProductDto,
+  ) {
+    return this.productsService.update(id, updateProductDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+  public remove(@Param('id', ParseUUIDPipe) id: string) {
+    return this.productsService.remove(id);
+  }
+
+  @Patch(':id/reactivate')
+  public reactivate(@Param('id', ParseUUIDPipe) id: string) {
+    return this.productsService.reactivate(id);
   }
 }

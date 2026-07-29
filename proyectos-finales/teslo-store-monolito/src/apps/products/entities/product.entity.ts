@@ -1,5 +1,7 @@
 import { Brand } from 'src/apps/brands/entities/brand.entity';
 import {
+  BeforeInsert,
+  BeforeUpdate,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
@@ -64,4 +66,14 @@ export class Product {
     nullable: true,
   })
   public deleted_at!: Date | null;
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  checkSlug() {
+    const valueToSlug = this.slug?.trim() || this.title;
+    this.slug = valueToSlug
+      .toLowerCase()
+      .replaceAll(' ', '_')
+      .replaceAll("'", '');
+  }
 }

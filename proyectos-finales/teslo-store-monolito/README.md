@@ -19,4 +19,4 @@
 ```npm install --save @nestjs/typeorm typeorm pg```
 
 ## Seguir a partir del video
-- Manejo de Errores
+- Paginar en TypeOrm
