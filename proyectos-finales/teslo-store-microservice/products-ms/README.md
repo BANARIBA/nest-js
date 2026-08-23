@@ -8,3 +8,26 @@
 2. Set the environment vars in __.env__
 3. Install dependencies with ```npm i```
 4. Run this project ```npm run start:dev```
+
+# Instalations
+- (Validators & Transformer)[https://docs.nestjs.com/techniques/validation]
+```npm i --save class-validator class-transformer```
+- (Environment Variables Config)[https://docs.nestjs.com/techniques/configuration]
+```npm i --save @nestjs/config```
+- (TypeORM with PostgreSQL)[https://docs.nestjs.com/techniques/database]
+```npm install --save @nestjs/typeorm typeorm pg```
+
+# Trasnform web service to microservice
+- Install ```npm i --save @nestjs/microservices```
+- Go to __main.ts__ and set
+ ```ts
+    const app = await NestFactory.createMicroservice<MicroserviceOptions>(
+      AppModule,
+      {
+        transport: Transport.TCP,
+        options: {
+          port: +(process.env.PORT || 3001),
+        },
+      },
+    );
+ ```
