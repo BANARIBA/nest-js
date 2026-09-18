@@ -1,0 +1,13 @@
+
+services:
+  db:
+    image: postgres:15
+    container_name: orders_ms_db_container
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5462:5432"
+    volumes:
+      - ./postgres:/var/lib/postgresql/data

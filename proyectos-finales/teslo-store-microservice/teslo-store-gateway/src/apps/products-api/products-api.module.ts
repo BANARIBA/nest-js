@@ -18,7 +18,6 @@ import { ProductImagesService } from './controllers/products/product-images.serv
           transport: Transport.TCP,
           options: {
             host: configService.get<string>('PRODUCTS_MS_HOST') ?? 'localhost',
-
             port: Number(configService.get<string>('PRODUCTS_MS_PORT') ?? 3001),
           },
         }),

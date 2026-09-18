@@ -1,0 +1,1 @@
+export const ORDER_API_SERVICE = 'ORDERS_API_SERVICE';

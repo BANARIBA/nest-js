@@ -26,7 +26,7 @@
       {
         transport: Transport.TCP,
         options: {
-          port: +(process.env.PORT || 3002),
+          port: +(process.env.PORT || 3001),
         },
       },
     );
