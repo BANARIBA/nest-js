@@ -1,12 +1,14 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Inject, ParseUUIDPipe } from '@nestjs/common';
 import { OrdersService } from './orders.service';
 import { MessagePattern, Payload } from '@nestjs/microservices';
-import { ordersMessagePatterns } from 'src/src/common/consts';
-import { CreateOrderDto } from './dtos';
+import { ChangeOrderStatusDto, CreateOrderDto, SearchOrdersByDto } from './dtos';
+import { ordersMessagePatterns } from '../../common/consts';
 
 @Controller()
 export class OrdersController {
-  constructor(private readonly ordersService: OrdersService) {}
+  constructor(
+    private readonly ordersService: OrdersService,
+  ) {}
 
   @MessagePattern({ cmd: ordersMessagePatterns.CREATE_ORDER })
   create(@Payload() createOrderDto: CreateOrderDto) {
@@ -14,17 +16,23 @@ export class OrdersController {
   }
 
   @MessagePattern({ cmd: ordersMessagePatterns.FIND_ALL })
-  findAll() {
-    return 'Obteniendo Ordenes';
+  findAll(
+    @Payload() searchOrdersByDto: SearchOrdersByDto
+  ) {
+    return this.ordersService.findAll(searchOrdersByDto);
   }
 
   @MessagePattern({ cmd: ordersMessagePatterns.FIND_ONE })
-  findOne() {
-    return 'Obteniendo Orden';
+  findOne(
+    @Payload('order_id', ParseUUIDPipe) order_id: string
+  ) {
+    return this.ordersService.findOrder(order_id);
   }
 
   @MessagePattern({ cmd: ordersMessagePatterns.CHANGE_ORDER_STATUS })
-  changeOrderStatus() {
-    return 'Cambiando estado de la orden';
+  changeOrderStatus(
+    @Payload() changeOrderStatusDto: ChangeOrderStatusDto,
+  ) {
+    return this.ordersService.findOrderAndChangeStatus(changeOrderStatusDto);
   }
 }

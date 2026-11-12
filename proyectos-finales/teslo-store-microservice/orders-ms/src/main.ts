@@ -10,7 +10,7 @@ export async function bootstrap() {
     {
       transport: Transport.TCP,
       options: {
-        port: +(process.env.PORT || 3002),
+        port: +(process.env.ORDERS_MS_PORT || 3002),
       }
     },
   );
@@ -22,6 +22,6 @@ export async function bootstrap() {
     }),
   );
   await app.listen();
-  logger.log(`NodeJS server started on port ${process.env.PORT ?? 3002}`);
+  logger.log(`NodeJS server started on port ${process.env.ORDERS_MS_PORT ?? 3002}`);
 }
 void bootstrap();

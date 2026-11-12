@@ -3,6 +3,7 @@ import { OrdersController } from './controllers/orders.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ORDER_API_SERVICE } from './consts';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { PRODUCT_API_SERVICE } from '../products-api/consts';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
           transport: Transport.TCP,
           options: {
             host: configService.get<string>('ORDERS_MS_HOST') ?? 'localhost',
-            port: Number(configService.get<string>('PRODUCT_MS_PORT') ?? 3002),
+            port: Number(configService.get<string>('ORDERS_MS_PORT') ?? 3002),
           },
         }),
       },

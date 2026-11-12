@@ -10,7 +10,7 @@ export async function bootstrap() {
     {
       transport: Transport.TCP,
       options: {
-        port: +(process.env.PORT || 3001),
+        port: +(process.env.PRODUCTS_MS_PORT || 3001),
       },
     },
   );
@@ -22,6 +22,6 @@ export async function bootstrap() {
     }),
   );
   await app.listen();
-  logger.log(`Producta Microservice Running on port ${process.env.PORT ?? 3001}`);
+  logger.log(`Producta Microservice Running on port ${process.env.PRODUCTS_MS_PORT ?? 3001}`);
 }
 void bootstrap();

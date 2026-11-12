@@ -4,7 +4,7 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { SearchProductsByDto } from './dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Brand } from '../brands/entities/brand.entity';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
 import { RpcException } from '@nestjs/microservices';
 
@@ -183,5 +183,23 @@ export class ProductsService {
       });
     }
     return await this.productsRepository.save(existsProduct);
+  }
+
+  public async validateProductsByIds(ids: string[]) {
+    const idsCleaned = Array.from(new Set(ids));
+    console.log({idsCleaned})
+    const products = await this.productsRepository.find({
+      where: {
+        id: In(idsCleaned)
+      },
+    });
+    if (products.length !== idsCleaned.length) {
+      throw new RpcException({
+        message: 'Some products were not found',
+        status: HttpStatus.BAD_REQUEST,
+      });
+    }
+    console.log({products})
+    return products;
   }
 }

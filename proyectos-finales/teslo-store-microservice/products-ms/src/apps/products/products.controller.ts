@@ -44,4 +44,9 @@ export class ProductsController {
   reactivate(@Payload('id', ParseUUIDPipe) id: string) {
     return this.productsService.reactivate(id);
   }
+
+  @MessagePattern({ cmd: productsMessagePatterns.VALIDATE_PRODUCTS })
+  validateProductsByIds(@Payload() ids: string[]) {
+    return this.productsService.validateProductsByIds(ids);
+  }
 }

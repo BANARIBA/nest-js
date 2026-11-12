@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { OrderStatus } from '../enums';
+import { OrderDetails } from './order-details.entity';
 
 @Entity({ name: 'orders' })
 export class Order {
@@ -37,4 +38,7 @@ export class Order {
 
   @Column({ type: 'timestamptz', default: null })
   public update_at!: Date | null;
+
+  @OneToMany(() => OrderDetails, (od) => od.order, { cascade: true })
+  public order_details!: OrderDetails[];
 }
